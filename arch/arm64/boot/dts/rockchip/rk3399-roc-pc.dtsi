@@ -215,7 +215,7 @@
 		regulator-name = "vdd_log";
 		regulator-always-on;
 		regulator-boot-on;
-		regulator-min-microvolt = <430000>;
+		regulator-min-microvolt = <450000>;
 		regulator-max-microvolt = <1400000>;
 		pwm-supply = <&vcc3v3_sys>;
 	};
@@ -529,14 +529,14 @@
 	status = "okay";
 
 	fusb1: usb-typec@22 {
-		compatible = "fairchild,fusb302";
+		compatible = "fcs,fusb302";
 		reg = <0x22>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&fusb1_int>;
 		vbus-supply = <&vcc_vbus_typec1>;
-		status = "disabled";
+		status = "okay";
 	};
 };
 
@@ -546,14 +546,14 @@
 	status = "okay";
 
 	fusb0: usb-typec@22 {
-		compatible = "fairchild,fusb302";
+		compatible = "fcs,fusb302";
 		reg = <0x22>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&fusb0_int>;
 		vbus-supply = <&vcc_vbus_typec0>;
-		status = "disabled";
+		status = "okay";
 	};
 
 	mp8859: regulator@66 {
