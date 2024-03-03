@@ -62,6 +62,7 @@ config EXTCON_INTEL_CHT_WC
 	tristate "Intel Cherrytrail Whiskey Cove PMIC extcon driver"
 	depends on INTEL_SOC_PMIC_CHTWC
 	depends on USB_SUPPORT
+	depends on POWER_SUPPLY
 	select USB_ROLE_SWITCH
 	help
 	  Say Y here to enable extcon support for charger detection / control
@@ -180,6 +181,16 @@ config EXTCON_USBC_CROS_EC
 	help
 	  Say Y here to enable USB Type C cable detection extcon support when
 	  using Chrome OS EC based USB Type-C ports.
+
+config EXTCON_USBC_VIRTUAL_PD
+	tristate "Virtual Type-C PD EXTCON support"
+	depends on GPIOLIB || COMPILE_TEST
+	help
+	  Say Y here to enable Virtual Type-C PD extcon driver support, if
+	  hardware platform designed Type-C modes separately.
+
+	  Example, of designing Display Port separately from Type-C Altmode
+	  instead of accessing Altmode Display Port in Type-C connector.
 
 config EXTCON_USBC_TUSB320
 	tristate "TI TUSB320 USB-C extcon support"
